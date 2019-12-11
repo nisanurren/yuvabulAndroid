@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void signIn() {
         User user = new User();
-        user.mail=mail.getText();
-        user.password=password.getText();
+        user.mail=mail.getText().toString();
+        user.password=password.getText().toString();
 
         final Intent intent = new Intent(this, HomePage.class);
         String URL = "http://10.0.2.2:8080/SignInControl/"+user.mail+"/"+user.password;

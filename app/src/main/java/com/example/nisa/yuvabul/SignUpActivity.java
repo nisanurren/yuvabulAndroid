@@ -8,17 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -56,53 +57,57 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     public void signUp() {
-        User user = new User();
-        user.name = name.getText();
-        user.mail = mail.getText();
-        user.password = password.getText();
-        user.surname = surname.getText();
+        final User user = new User();
+        user.name = name.getText().toString();
+        user.mail = mail.getText().toString();
+        user.password = password.getText().toString();
+        user.surname = surname.getText().toString();
 
 
 
-        String URL = "http://localhost:8080/SignUpUser";
+        String URL = "http://10.0.2.2:8080/SignUpUser";
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
 
-        JSONObject jsonBody = new JSONObject();
-        try {
-            jsonBody.put("mail",mail);
-            jsonBody.put("password",password);
-            jsonBody.put("name",name);
-            jsonBody.put("surname",surname);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        JsonObjectRequest objectRequest = new JsonObjectRequest(
-                URL,
-                jsonBody,
-                new Response.Listener<JSONObject>() {
+        StringRequest strRequest = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>()
+                {
                     @Override
-                    public void onResponse(JSONObject response) {
-
+                    public void onResponse(String response)
+                    {
                         Log.e("Rest Responsess ", response.toString());
-
                     }
                 },
-                new Response.ErrorListener() {
+                new Response.ErrorListener()
+                {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-
+                    public void onErrorResponse(VolleyError error)
+                    {
                         Log.e("Rest Response", error.toString());
+                        Toast.makeText(getApplicationContext(), "Kullanıcı Bilgileri Yanlış", Toast.LENGTH_LONG).show();
                     }
-                }
+                })
+        {
+            @Override
+        protected Map<String, String> getParams()
+        {
+            Map<String, String> params = new HashMap<String, String>();
+            params.put("name", user.name);
+            params.put("surname", user.surname);
+            params.put("password", user.password);
+            params.put("mail", user.mail);
 
-        );
-
-        requestQueue.add(objectRequest);
 
 
+            return params;
+        }
+        };
+
+
+
+        requestQueue.add(strRequest);
 
 
     }

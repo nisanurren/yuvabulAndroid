@@ -8,10 +8,10 @@ import android.widget.EditText;
  */
 
 public class User {
-    Editable mail;
-    Editable name;
-    Editable surname;
-    Editable password;
+    String  mail;
+    String name;
+    String surname;
+    String password;
     int user_id;
 
 
