@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#5385c6</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="OkGreen">#6fc794</color>
+    <color name="SoftPurple">#cd81f0</color>
+
+    <color name="SoftCream">#ede3d5</color>
 </resources>

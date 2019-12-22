@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signIn() {
-        User user = new User();
+        final User user = new User();
         user.mail=mail.getText().toString();
         user.password=password.getText().toString();
 
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
 
                         Log.e("Rest Responsess ", response.toString());
+                        intent.putExtra("mail",user.mail);
                         startActivity(intent);
 
                     }
