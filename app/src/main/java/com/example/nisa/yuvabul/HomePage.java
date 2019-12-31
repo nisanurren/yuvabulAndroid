@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -25,6 +27,7 @@ import com.google.gson.JsonArray;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.security.spec.PSSParameterSpec;
 
 public class HomePage extends AppCompatActivity {
@@ -33,6 +36,8 @@ public class HomePage extends AppCompatActivity {
     String mail;
     int userId;
     String userMail;
+    ListView postsList;
+
 
 
     @Override
@@ -40,6 +45,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        postsList=findViewById(R.id.postsList);
         createPostButton=findViewById(R.id.createPostButton);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Gönderiler");
@@ -54,9 +60,12 @@ public class HomePage extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         Log.e("Rest response",response.toString());
                         Gson gson= new Gson();
+
                         Post[] responseModel=gson.fromJson(response.toString(),Post[].class);
 
 
+
+                        printPosts(responseModel);
 
                     }
                 },
@@ -100,6 +109,7 @@ public class HomePage extends AppCompatActivity {
 
 
 
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -131,4 +141,21 @@ public class HomePage extends AppCompatActivity {
         intent.putExtra("userMail",userMail);
         startActivity(intent);
     }
-}
+
+    public void printPosts(Post[] responseModel){
+
+        CustomAdapter adapter =new CustomAdapter(this,responseModel);
+        if(postsList != null){
+            postsList.setAdapter(adapter);
+        }
+
+
+       }
+
+
+
+
+    }
+
+
+
