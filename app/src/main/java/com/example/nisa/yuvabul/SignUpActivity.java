@@ -1,5 +1,6 @@
 package com.example.nisa.yuvabul;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -78,6 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onResponse(String response)
                     {
                         Log.e("Rest Responsess ", response.toString());
+
                     }
                 },
                 new Response.ErrorListener()
@@ -108,6 +110,8 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         requestQueue.add(strRequest);
+        Intent i =new Intent(this,MainActivity.class);
+        startActivity(i);
 
 
     }

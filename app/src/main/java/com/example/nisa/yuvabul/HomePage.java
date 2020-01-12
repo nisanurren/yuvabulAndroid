@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -37,7 +38,7 @@ public class HomePage extends AppCompatActivity {
     int userId;
     String userMail;
     ListView postsList;
-
+    Post p=new Post();
 
 
     @Override
@@ -81,8 +82,29 @@ public class HomePage extends AppCompatActivity {
 
 
 
+        postsList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
 
 
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("Long Click","Clicked User Mail:  ");
+                Log.e("Long Click",""+id);
+
+
+                Object a= parent.getItemAtPosition(position);
+                a.toString();
+                parent.getAdapter();
+
+                p=(Post) a;
+                String msfs= p.creator_mail;
+
+
+
+
+                GoMailActivity();
+                return false;
+            }
+        });
 
 
 
@@ -152,7 +174,12 @@ public class HomePage extends AppCompatActivity {
 
        }
 
-
+       public void GoMailActivity(){
+        Intent i = new Intent(this,SendMailActivity.class);
+           i.putExtra("from_mail",userMail);
+           i.putExtra("to_mail",p.creator_mail);
+        startActivity(i);
+    }
 
 
     }

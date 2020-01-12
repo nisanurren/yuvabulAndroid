@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/SoftPurple"
+    android:background="@color/baseGreen"
     android:fitsSystemWindows="true">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/SoftPurple"
+        android:background="@color/baseGreen"
         android:orientation="vertical"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
@@ -21,7 +21,7 @@
             android:layout_height="72dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
-            android:src="@drawable/indir" />
+            android:src="@drawable/sonlogo" />
 
         <!-- Email Label -->
 
@@ -32,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="casual"
             android:hint="e-mail"
             android:inputType="textPersonName" />
 
@@ -44,12 +45,18 @@
             android:inputType="textPersonName" />
 
         <android.support.v7.widget.AppCompatButton
+
             android:id="@+id/btn_login"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="24dp"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
+            android:fontFamily="casual"
             android:padding="12dp"
+            android:radius="170dp"
+            android:shape="rectangle"
             android:text="Giriş Yap" />
 
         <TextView
@@ -57,9 +64,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:fontFamily="casual"
             android:gravity="center"
             android:text="Kayıt Ol"
-            android:textSize="16dip" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 </ScrollView>

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#f78078"
+    android:background="@color/baseGreen"
     android:fitsSystemWindows="true">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#f78078"
+        android:background="@color/baseGreen"
         android:orientation="vertical"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
@@ -24,6 +24,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="e-mail" />
 
         <EditText
@@ -32,15 +33,18 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="e-mail"
+            android:fontFamily="casual"
             android:inputType="textPersonName" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="Ad" />
 
         <EditText
             android:id="@+id/name"
+            android:fontFamily="casual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -49,6 +53,7 @@
 
         <TextView
             android:layout_width="match_parent"
+            android:fontFamily="casual"
             android:layout_height="wrap_content"
             android:text="Soyad" />
 
@@ -56,6 +61,7 @@
             android:id="@+id/surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:ems="10"
             android:hint="soyad"
             android:inputType="textPersonName" />
@@ -63,12 +69,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="Şifre" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:ems="10"
             android:hint="sifre"
             android:inputType="textPassword" />
@@ -76,6 +84,7 @@
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_sign_up"
             android:layout_width="fill_parent"
+            android:fontFamily="casual"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
