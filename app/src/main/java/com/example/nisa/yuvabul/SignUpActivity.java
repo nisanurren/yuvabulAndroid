@@ -35,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
 
@@ -49,6 +50,8 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 signUp();
+                goSignIn();
+
 
             }
         });
@@ -56,6 +59,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    public void goSignIn() {
+        Intent i= new Intent(this,MainActivity.class);
+        startActivity(i);
+
+    }
 
     public void signUp() {
         final User user = new User();

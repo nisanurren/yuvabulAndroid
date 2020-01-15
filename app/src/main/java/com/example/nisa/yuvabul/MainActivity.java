@@ -114,8 +114,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+        Toast.makeText(getApplicationContext(), "Lütfen Giriş Yapınız", Toast.LENGTH_LONG).show();
+    }
 }
+
+
+
+
 

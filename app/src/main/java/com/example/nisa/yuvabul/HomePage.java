@@ -40,9 +40,9 @@ public class HomePage extends AppCompatActivity {
     ListView postsList;
     Post p=new Post();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
@@ -50,6 +50,8 @@ public class HomePage extends AppCompatActivity {
         createPostButton=findViewById(R.id.createPostButton);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Gönderiler");
+        actionBar.hide();
+
 
 
         String URL1 = "http://10.0.2.2:8080/GetAllPosts";
@@ -79,6 +81,7 @@ public class HomePage extends AppCompatActivity {
 
 
         requestQueue1.add(arrayRequest);
+
 
 
 
@@ -181,7 +184,13 @@ public class HomePage extends AppCompatActivity {
         startActivity(i);
     }
 
-
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
     }
 
 
